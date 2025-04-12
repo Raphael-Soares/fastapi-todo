@@ -50,7 +50,7 @@ def user(session: Session):
     session.commit()
     session.refresh(user)
 
-    user.clean_password = pwd  # Monkey Patch
+    setattr(user, 'clean_password', pwd)
 
     return user
 
